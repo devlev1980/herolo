@@ -1,0 +1,16 @@
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+label{
+  display: flex;
+  flex: 1 0 auto;
+}
+h2 {
+  text-align: center;
+}
+::ng-deep  .mat-input-underline {
+  background-color:#38E4AE;
+}

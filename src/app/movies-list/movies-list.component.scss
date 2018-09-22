@@ -1,0 +1,76 @@
+.cards {
+  margin-top: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+mat-card {
+  width: 30rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: #283044;
+  color: #fff;
+  mat-card-title {
+    text-align: center;
+  }
+  &:hover mat-card-title {
+    color: #38E4AE;
+    transition: all 0.5s
+
+  }
+  hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+  }
+
+  .btnEdit {
+    background-color: #38E4AE;
+  }
+  .btnDelete {
+    background-color: #A53860;
+  }
+  mat-card-actions {
+    text-align: right;
+  }
+}
+
+.addButton {
+  background-color: #38E4AE;
+  color: #283044;
+  font-size: 25px;
+  position: fixed;
+  top: 5rem;
+  left: .5rem;
+  margin-right: 2rem;
+  margin-left: 1rem;
+  z-index: 1;
+}
+
+mat-form-field {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-spinner {
+  margin: 150px auto;
+}
+
+.mat-spinner::ng-deep circle {
+  stroke: #283044;
+}
+::ng-deep .mat-form-field-placeholder{
+  color:#283044
+}
+ .search{
+  transform: rotate(90deg);
+  color: #fff;
+  height: 34px;
+}
+/deep/ .mat-input-underline {
+  background-color: white;
+}
+
+
+
+

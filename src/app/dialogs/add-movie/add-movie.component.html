@@ -1,0 +1,51 @@
+
+  <mat-dialog-content>
+    <div class="movieForm" >
+  <h2>Add New Movie</h2>
+  <form [formGroup]="addMovieForm">
+    <mat-form-field >
+      <label>Title:</label>
+      <input matInput type="text" formControlName="title" appUniqueTitle>
+
+      <mat-error *ngIf="addMovieForm.get('title').hasError('uniqueTitle')">Title already exists</mat-error>
+      <mat-error *ngIf="addMovieForm.get('title').hasError('required')">Field is require</mat-error>
+    </mat-form-field>
+    <!--<div *ngIf="title.pending">Checking...</div>-->
+
+    <mat-form-field >
+      <label>Director:</label>
+      <input matInput type="text" formControlName="director">
+      <mat-error *ngIf="addMovieForm.get('director').invalid">Please enter a director name</mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field >
+      <label>Genre:</label>
+      <input matInput type="text" formControlName="genre">
+      <mat-error *ngIf="addMovieForm.get('genre').invalid">Please enter a genre</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+      <label>Runtime:</label>
+      <input matInput type="text" formControlName="runtime">
+      <mat-error *ngIf="addMovieForm.get('runtime').invalid">Please enter a duration in minutes</mat-error>
+    </mat-form-field>
+
+    <mat-form-field >
+      <label>Year:</label>
+      <input matInput type="text" formControlName="year" >
+      <mat-error *ngIf="!addMovieForm.controls['year'].hasError('minLength')">Year must be 4 digits minimum and 4 digits maximum</mat-error>
+      <mat-error *ngIf="!addMovieForm.controls['year'].hasError('maxLength')"></mat-error>
+      <mat-error *ngIf="addMovieForm.controls['year'].hasError('required')">This field is required</mat-error>
+      <mat-error *ngIf="addMovieForm.controls['year'].hasError('pattern')">Please enter digits only from 0-9</mat-error>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" type="submit" class="btnAdd" [mat-dialog-close]="true"  (click)="onSubmit(addMovieForm.value)" [disabled]="addMovieForm.invalid">ADD</button>
+      <button mat-raised-button color="primary"   class="btnCancel" [mat-dialog-close]="false">CANCEL</button>
+    </div>
+  </form>
+    </div>
+  </mat-dialog-content>
+
+

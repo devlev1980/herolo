@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #C6C5B9;
+  background: url("https://images.pexels.com/photos/269140/pexels-photo-269140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=12600");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+mat-dialog-container.mat-dialog-container{
+  background-color: #283044;
+  color: #fff;
+  h2{
+    padding: 0;
+    margin: 0;
+  }
+
+  .actions {
+    margin-top: 1rem;
+    text-align: right;
+    .btnAdd,.btnYes{
+      background-color: #38E4AE;
+
+    }
+    .btnCancel,.btnNO{
+      background-color: #A53860;
+    }
+  }
+  .mat-form-field-infix{
+    padding: 2px;
+  }
+
+
+}
+
+

@@ -1,0 +1,43 @@
+<button mat-fab color="accent" class="addButton" (click)="onAddBook()" matTooltip="Add Movie">+</button>
+<!--<mat-form-field>-->
+  <!--<input type="text" matInput class="search"  [ngModel]="searchInput|input" pattern="[^\u0000-\u007F]+"-->
+         <!--(ngModelChange)="searchInput=$event" >-->
+<!--</mat-form-field>-->
+
+<mat-form-field appearance="standard">
+  <!--<mat-label style="margin-left: 0.5rem">Search</mat-label>-->
+  <input matInput  [ngModel]="searchInput|titlecase" (ngModelChange)="searchInput=$event" appSpecialCharacter>
+  <mat-icon matPrefix class="search">search</mat-icon>
+</mat-form-field>
+
+<div class="cards" *ngIf="movies;else loading">
+  <mat-card *ngFor="let movie of movies|searchFilter: searchInput">
+    <mat-card-title>{{movie.title}}</mat-card-title>
+    <hr>
+    <mat-card-header>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Directed by : {{movie.director}}</p>
+      <p> Genre : {{movie.genre}}</p>
+      <p> Year : {{movie.year}}</p>
+      <p> Runtime : {{movie.runtime}}</p>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" class="btnEdit" type="submit" (click)="onEditMovie(movie)">
+        <mat-icon>edit</mat-icon>
+        Edit
+      </button>
+      <button mat-raised-button color="warn" class="btnDelete" type="submit" (click)="onDeleteMovie(movie.id)">
+        <mat-icon>delete_forever</mat-icon>
+        Delete
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
+
+

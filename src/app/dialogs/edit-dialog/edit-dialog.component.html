@@ -1,0 +1,52 @@
+
+<mat-dialog-content>
+  <div class="movieForm" >
+    <h2>Edit Movie</h2>
+    <form [formGroup]="form" >
+      <mat-form-field >
+        <label>Title:</label>
+        <input matInput type="text" formControlName="title" >
+        <mat-error *ngIf="!form.get('title').valid">Please enter a title</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field >
+        <label>Director:</label>
+        <input matInput type="text" formControlName="director" >
+        <mat-error *ngIf="!form.get('director').valid">Please enter a director</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field >
+        <label>Genre:</label>
+        <input matInput type="text" formControlName="genre" >
+        <mat-error *ngIf="!form.get('genre').valid">Please enter a genre</mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field >
+        <label>Runtime:</label>
+        <input matInput type="text" formControlName="runtime" >
+        <mat-error *ngIf="!form.get('runtime').valid">Please enter a duration</mat-error>
+      </mat-form-field>
+
+      <mat-form-field >
+        <label>Year:</label>
+        <input matInput type="text" formControlName="year" id="year" pattern="^[0-9]*$">
+        <mat-error *ngIf="!form.controls['year'].hasError('minLength')">Year must be 4 digits minimum and 4 digits maximum</mat-error>
+        <mat-error *ngIf="!form.controls['year'].hasError('maxLength')"></mat-error>
+        <mat-error *ngIf="form.controls['year'].hasError('required')">This field is required</mat-error>
+        <mat-error *ngIf="form.controls['year'].hasError('pattern')">Please enter digits only from 0-9</mat-error>
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-raised-button color="primary"  [mat-dialog-close]="true" class="btnAdd" (click)="onSaveMovie(form.value,data.id)" [disabled]="form.invalid">SAVE</button>
+        <button mat-raised-button color="primary"  [mat-dialog-close]="false" class="btnCancel" >CANCEL</button>
+      </div>
+
+    </form>
+  </div>
+</mat-dialog-content>
+
+
+
