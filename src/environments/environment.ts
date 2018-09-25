@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://localhost:3000/movies'
+  // apiURL: 'http://localhost:3000/movies'
+  apiURL: 'https://herolo-server.herokuapp.com/movies'
 };
